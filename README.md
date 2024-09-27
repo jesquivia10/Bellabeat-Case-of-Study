@@ -164,6 +164,17 @@ colnames(hourly_intensities)
 kable(head(minutes_steps_narrow), align = "c", caption = "Minutes Steps Dataframe")
 colnames(minutes_steps_narrow)
 ```
+![image](https://github.com/user-attachments/assets/60df0789-2e30-4ab0-b15b-79b3aebc4c01)
+
+![image](https://github.com/user-attachments/assets/b4f7609c-9b82-47a3-99a5-2dcc763967a4)
+
+![image](https://github.com/user-attachments/assets/a179a892-7b77-4fe3-878c-9ba5f203d044)
+
+![image](https://github.com/user-attachments/assets/c039121d-c802-4e07-8974-5b9c52f3ba3b)
+
+![image](https://github.com/user-attachments/assets/b2eb7a51-a871-40e1-9a14-3698743364f2)
+
+![image](https://github.com/user-attachments/assets/52b560ba-2765-4ec5-9a51-a1e563f9078b)
 
 ### **4.4. Checking number of participants and number of rows** <a class="anchor"  id="checking_number_of_participants_and_number_of_rows"></a>
 
@@ -189,6 +200,8 @@ nrow(hourly_intensities)
 nrow(minutes_steps_narrow)
 
 ```
+![image](https://github.com/user-attachments/assets/dbc5b4b8-6af2-41d2-ae48-4014c6393822)
+![image](https://github.com/user-attachments/assets/ed8d858c-5b16-4c4b-baa1-8fc0d5257d35)
 
 ### **4.5. Look for Duplicates** <a class="anchor"  id="look_for_duplicates"></a>
 
@@ -202,6 +215,7 @@ sum(duplicated(hourly_steps))
 sum(duplicated(hourly_intensities))
 sum(duplicated(minutes_steps_narrow))
 ```
+![image](https://github.com/user-attachments/assets/96810a7b-f6fd-4e89-b95e-be7429cf89d8)
 
 ### **4.6. Delete Duplicates** <a class="anchor"  id="delete_duplicates"></a>
 ​
@@ -217,6 +231,7 @@ Now, let’s verify that the duplicates have been removed.
 ```{r message=FALSE, warning=FALSE}
 sum(duplicated(daily_sleep))
 ```
+![image](https://github.com/user-attachments/assets/59dd940f-74a2-4b60-a3ce-f22cccee4859)
 
 ### **4.7. Formatting Column names** <a class="anchor"  id="formatting_column_names"></a>
 
@@ -243,6 +258,12 @@ hourly_intensities <- rename_with(hourly_intensities, tolower)
 kable(head(clean_names(minutes_steps_narrow)), align = "c", caption = "Minutes Steps Dataframe")
 minutes_steps_narrow <- rename_with(minutes_steps_narrow, tolower)
 ```
+![image](https://github.com/user-attachments/assets/08224fce-98de-4038-9f29-dd897758069f)
+![image](https://github.com/user-attachments/assets/8205b801-2378-4c87-9b45-3d026e6aa19c)
+![image](https://github.com/user-attachments/assets/b07e3c79-b2dd-41d8-b8ab-8d9ac2f07a73)
+![image](https://github.com/user-attachments/assets/f6f5b1f3-3f25-42d2-a6c2-62c4fedcc58a)
+![image](https://github.com/user-attachments/assets/751c24e5-55f6-4796-b1a9-8f5ad3064907)
+![image](https://github.com/user-attachments/assets/ec774bb3-77c5-4b83-a2fd-32902132bc7b)
 
 ### **4.8. Formatting Date Columns** <a class="anchor"  id="formatting_date_columns"></a>
 
@@ -265,6 +286,9 @@ Now we verify the consistency of both datasets:
 kable(head(daily_activity), align = "c", caption = "Daily Activity Dataframe")
 kable(head(daily_sleep), align = "c", caption = "Daily Sleep Dataframe")
 ```
+![image](https://github.com/user-attachments/assets/a3b83622-b0b8-4435-b192-cdc9f16312a4)
+
+![image](https://github.com/user-attachments/assets/ec83947e-4ff0-427d-ac5c-82e2137ceac9)
 
 We now need to change the format of 'hourly_calories', 'hourly_steps', and 'hourly_intensities' from character to date-time.
 
@@ -288,6 +312,11 @@ kable(head(hourly_steps), align = "c", caption = "Hourly Steps Dataframe")
 kable(head(hourly_intensities), align = "c", caption = "Hourly Intensities Dataframe")
 
 ```
+![image](https://github.com/user-attachments/assets/64efd9cd-9cb4-426b-9822-26c583abf9fe)
+
+![image](https://github.com/user-attachments/assets/5d8ba398-5dab-4e3f-85e5-613af8eabeb8)
+
+![image](https://github.com/user-attachments/assets/5467a93f-5c1d-41ef-bf25-1f8914b085cb)
 
 Now we have to change the format of 'minutes_steps_narrow', from character to date-time.
 
@@ -298,6 +327,7 @@ minutes_steps_narrow<- minutes_steps_narrow %>%
 
 kable(head(minutes_steps_narrow), align = "c", caption = "Minutes Steps Dataframe")
 ```
+![image](https://github.com/user-attachments/assets/f3990bcc-8bbb-4855-aba6-c2a4bebf532b)
 
 ### **4.9. Merging Datasets** <a class="anchor"  id="merging_datasets"></a>
 
@@ -307,6 +337,7 @@ We will now merge the 'daily_activity' and 'daily_sleep' datasets to analyze how
 daily_activity_sleep <- merge(daily_activity, daily_sleep, by=c ("id", "date"))
 glimpse(daily_activity_sleep)
 ```
+![image](https://github.com/user-attachments/assets/366adf04-a69a-4e21-b428-1fd5d05d80c7)
 
 Now we will combine 'hourly_calories' with 'hourly_steps' and 'hourly_intensities' to understand the relationship between activity intensity, step count, and calorie burning throughout the day.
 
@@ -317,6 +348,8 @@ hourly_data <- merge(hourly_data_a, hourly_intensities, by=c ("id", "date_time")
 
 glimpse(hourly_data)
 ```
+![image](https://github.com/user-attachments/assets/c581ceae-ae83-41ea-a686-15499d342e80)
+
 
 ## **5. Analyze and Share Phase** <a class="anchor"  id="analyze_and_share_phase"></a>
 
@@ -332,6 +365,8 @@ ggplot(data=daily_activity, aes(x=totalsteps, y=sedentaryminutes)) + geom_point(
        )+
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/106de141-e1cd-47e4-9155-dc891ea59b89)
+
 Although the last graph does not show a strong trend, we observe a slight decrease in sedentary minutes as the total steps taken increase. However, there are still instances where significant sedentary minutes are recorded despite a high number of steps. Therefore, the graph is not very conclusive.
 
 
@@ -345,6 +380,7 @@ ggplot(data=daily_sleep, aes(x=totalminutesasleep, y=totaltimeinbed)) + geom_poi
        )+
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/a2c84071-84fe-4e00-9e14-92ce645ecf59)
 
 The last graph shows an almost completely linear relation as expected, more time asleep means more time in bed.
 
@@ -356,6 +392,7 @@ daily_activity_sleep <- daily_activity_sleep %>%
 
 kable(head(daily_activity_sleep), align = "c", caption = "Daily Activity & Sleep Dataframe")
 ```
+![image](https://github.com/user-attachments/assets/3b8b0a54-9b5d-48ff-beb1-0d107b6c8dd6)
 
 Now let's visualize total steps vs total minutes asleep, and sleep_efficiency:
 
@@ -372,6 +409,10 @@ ggplot(data=daily_activity_sleep, aes(x=totalsteps, y=sleep_efficiency)) + geom_
        )+
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/4c028b68-c4b6-46cf-bd87-388768550ac3)
+
+![image](https://github.com/user-attachments/assets/1d3dae46-c447-4b5c-acc4-fd6aa474eb28)
+
 
 There is no correlation or trend evident in the data. We observe that some individuals with good sleep quality take few steps during the day, while others who take many steps have similar sleep quality.
 
@@ -390,6 +431,9 @@ ggplot(data=daily_activity_sleep, aes(x=sedentaryminutes, y=sleep_efficiency)) +
        )+
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/330b0d7f-9a3f-4244-95ac-c1b6b3fffb07)
+
+![image](https://github.com/user-attachments/assets/9b729679-82df-4004-8571-a710497c1b11)
 
 These graphs reveal some interesting insights. Firstly, we observe a negative correlation between sleep duration and sedentary minutes, as sleep duration decreases with an increase in sedentary minutes. However, the second graph shows that most individuals with sedentary minutes between 500 and 1000 tend to have better sleep efficiency.
 
@@ -403,6 +447,7 @@ daily_activity_sleep <- daily_activity_sleep %>%
 
 kable(head(daily_activity_sleep), align = "c", caption = "Daily Activity & Sleep Dataframe")
 ```
+![image](https://github.com/user-attachments/assets/342ec7b7-b810-4a0e-89cc-111551936bad)
 
 ```{r message=FALSE, warning=FALSE}
 # Create the time series plots
@@ -425,6 +470,9 @@ ggplot(data = daily_activity_sleep, aes(x = date)) +
   theme_stata() +
   scale_color_manual(values = c("Total Minutes Asleep" = "red"))
 ```
+![image](https://github.com/user-attachments/assets/bc809003-c6ba-44f4-a2e1-e350468418fc)
+
+![image](https://github.com/user-attachments/assets/f30e62f5-9fc8-4af3-b289-e2347b6cff64)
 
 As we can observe, there are no evident trends in any of the graphs. The sleep metrics and total active time of users show fluctuations over time, suggesting that people are not significantly changing their behavior when using the Bellabeat product.
 
@@ -445,6 +493,7 @@ summary_stats <- daily_activity_sleep %>%
 # Print the summary statistics
 kable(summary_stats, align = "c", caption = "Summary Stats of Activity Levels")
 ```
+![image](https://github.com/user-attachments/assets/a089dfcb-4cbc-4f08-9a45-b0898ee6f8be)
 
 Based on the results, we can classify activity levels as follows: active minutes below 200 are considered Low, a range between 200 and 270 is considered Medium, and above 270 is considered High.
 
@@ -458,6 +507,8 @@ daily_activity_sleep <- daily_activity_sleep %>%
 
 kable(head(daily_activity_sleep), align = "c", caption = "Daily Activity & Sleep Dataframe")
 ```
+![image](https://github.com/user-attachments/assets/31e1ab6d-1597-4dee-bbac-53175ac04c08)
+
 
 Now, we are going to calculate the mean total minutes asleep and sleep efficiency for each activity level:
 
@@ -473,6 +524,7 @@ average_sleep_metrics <- daily_activity_sleep %>%
 # Print the average sleep metrics
 kable(average_sleep_metrics, align = "c", caption = "Average Sleep Metrics by Activity Levels")
 ```
+![image](https://github.com/user-attachments/assets/8ad76b06-1388-4da0-9669-ae5ea8011e92)
 
 Now, let’s visualize the data using a bar chart:
 
@@ -496,6 +548,9 @@ ggplot(average_sleep_metrics, aes(x = factor(activity_levels, levels = activity_
        y = "Average Sleep Efficiency") +
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/65c3d625-7f1e-4415-a51d-114af4df873f)
+
+![image](https://github.com/user-attachments/assets/a4811b9f-93fe-493a-a52e-e72e16d841b4)
 
 We observe something very interesting here. The first graph shows that individuals with a low activity level have longer sleep duration. However, the second graph does not provide conclusive evidence that activity level affects sleep quality, as the average sleep efficiency is quite similar across all activity levels.
 
@@ -512,6 +567,7 @@ ggplot(hourly_data, aes(x = steptotal, y = calories)) +
        y = "Calories Burned")+
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/8e858726-6186-48e0-b94d-c33c79b735a9)
 
 As we expected there is a positive correlation between calories burned and steps taken. Now let's explore the relationship between intensity and calorie burn. We going to use two scatter plots, one to graph total intensity vs calories, and another to graph average intensity vs calories.
 
@@ -532,6 +588,9 @@ ggplot(hourly_data, aes(x = averageintensity, y = calories)) +
        y = "Calories Burned")+
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/1ee4f87e-378e-4866-9992-aaec7b4f179a)
+
+![image](https://github.com/user-attachments/assets/75f8de9d-ae9c-4a40-8cff-748cc6e38d24)
 
 As we can see, both graphs are consistent, showing a positive correlation between the variables. This indicates that as the activity intensity of individuals increases, they burn more calories.
 
@@ -578,6 +637,13 @@ ggplot(data = hourly_data, aes(x = date_time)) +
   theme_stata() +
   scale_color_manual(values = c("Average Intensity" = "purple"))
 ```
+![image](https://github.com/user-attachments/assets/1526d43d-b2d9-4361-a8f2-9a509a7d37c0)
+
+![image](https://github.com/user-attachments/assets/399a0faa-07f2-4f3e-895d-c7ede53a2426)
+
+![image](https://github.com/user-attachments/assets/6e95573e-3a18-4800-9d08-f7b6aee70209)
+
+![image](https://github.com/user-attachments/assets/33800fa6-5b4a-4d55-8ed4-65f67d07087d)
 
 From the four graphs visualized earlier, we can see that although there are no evident trends, a repeating pattern is present in each variable. This suggests that most individuals follow a certain daily routine.
 
@@ -599,6 +665,7 @@ ggplot(hourly_data, aes(x = hour, y = averageintensity, fill = calories)) +
        y = "Average Intensity") +
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/01949202-833c-4257-8648-dee6190ebe96)
 
 According to the graph, although the trend is not very clear, it appears that there is more activity between 8-11 AM and 5-7 PM. Additionally, we can see that most individuals do activities of low intensity with small amounts of calories burned. To further validate this, let’s create bar chart focusing solely on the calories burned throughout the day. 
 
@@ -619,6 +686,7 @@ ggplot(barchart_data, aes(x = hour, y = avg_calories, fill = avg_calories)) +
        y = "Calories Burned") +
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/ae62d7f1-dc40-4c9d-98f3-727395d4afcd)
 
 Based on the last graph, we can confirm that the periods of highest activity and more calories burned are from 8 AM to 2 PM and from 5 PM to 7 PM.
 
@@ -641,6 +709,7 @@ breaks = seq(min(barchart_data_s$avg_steps), max(barchart_data_s$avg_steps), by 
        y = "Average Steps Taken") +
   theme_stata()
 ```
+![image](https://github.com/user-attachments/assets/2b73b4a1-e90c-44ec-a830-3db0b5586e05)
 
 This graph aligns with the findings from the bar chart of calories. Additionally, we can clearly identify that the period between 6 and 7 PM is when users take the most steps. 
 
@@ -667,6 +736,7 @@ ggplot(data = hourly_steps, aes(x = hour, y = total_steps,color = "Total Steps",
   scale_color_manual(values = c("Total Steps" = "blue"))+
   theme(axis.text.y = element_text(size = 10, angle = 0))
 ```
+![image](https://github.com/user-attachments/assets/ede006f6-43ca-4406-8c38-ee314e606868)
 
 As we can see, there are peaks in the number of steps at 8 AM, 2 PM, and 7 PM, with smaller peaks at 9 AM, 12 PM, and 1 PM. We could use this information to send notifications reminding users to walk during these times.
 
